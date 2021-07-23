@@ -44,6 +44,14 @@ public class HotelReservationMain {
 	            return true;
 	      }
 	}
+	
+	//set weekend and weekday rates for regular customer
+	private static void setWeekdayAndWeekendRates(Hotel hotel, int weekday, int weekend) {
+		hotel.setRegularWeekday(weekday);
+		hotel.setRegularWeekEnd(weekend);
+		
+		System.out.println(hotel.getHotelName()+"'s  weekend rate: "+hotel.getRegularWeekEnd()+"\t weekday rate: "+hotel.getRegularWeekday());
+	}
 
 	public static void main(String[] args) {
 		lakewood = new Hotel("LAKEWOOD",110,80);
@@ -70,7 +78,10 @@ public class HotelReservationMain {
 						:(bridgeTotalRates < ridgeTotalRates ? bridgeTotalRates : ridgeTotalRates);
 		System.out.println("Cheapest Hotel: "+ cheapestHotel.getHotelName()+"\t its total cost: "+cheapestHotelTotalCost);
 		
-		
+		//setting weekend and weekday rates for regular customer
+		setWeekdayAndWeekendRates(lakewood, 110, 90);
+		setWeekdayAndWeekendRates(bridgewood, 150, 50);
+		setWeekdayAndWeekendRates(ridgewood, 220, 150);
 	}
 
 }
